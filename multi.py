@@ -1,13 +1,3 @@
-""" Neural Network.
-A 2-Hidden Layers Fully Connected Neural Network (a.k.a Multilayer Perceptron)
-implementation with TensorFlow. This example is using the MNIST database
-of handwritten digits (http://yann.lecun.com/exdb/mnist/).
-Links:
-    [MNIST Dataset](htt p://yann.lecun.com/exdb/mnist/).
-Author: Aymeric Damien
-Project: https://github.com/aymericdamien/TensorFlow-Examples/
-"""
-
 
 import tensorflow as tf
 import pandas as pd
@@ -94,3 +84,5 @@ with tf.Session() as sess:
     print("Optimization Finished!")
 
 print("Testing Accuracy:", sess.run(accuracy, feed_dict={X: enter, Y: output}))
+learned_output = tf.argmax(yo,0)
+print(learned_output.eval({entree:[[0,0,0,0],[0,0,0,1]]}))

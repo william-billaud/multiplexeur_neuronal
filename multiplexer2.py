@@ -7,7 +7,7 @@ hid2_size = 12
 N_OUTPUT = 2
 
 # chargement des données
-donne = pd.read_csv('./datas.csv')
+donne = pd.read_csv('./data.csv')
 
 # Selection des données (entrée/sortie attendu)
 x_in = donne.drop('res', axis=1).values
@@ -47,7 +47,7 @@ sess = tf.InteractiveSession()
 sess.run(init)
 
 for learning_rate in [0.06, 0.01]:
-    for epoch in range(1000):
+    for epoch in range(10000):
         avg_cost = 0.0
 
         # For each epoch, we go through all the samples we have.
@@ -61,8 +61,10 @@ for learning_rate in [0.06, 0.01]:
         avg_cost /= x_in.shape[0]
 
         # Print the cost in this epcho to the console.
-        if epoch % 10 == 0:
+        if epoch % 1000 == 0:
             print("Epoch: {:3d}    Train Cost: {:.4f}".format(epoch, avg_cost))
+        if epoch % 1000 == 0:
+            print('Hypothesis %s' % sess.run(yo,feed_dict={entree: x_in,label:labels_train}))
 
 correct_prediction = tf.equal(tf.argmax(yo, 1), tf.argmax(label, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
@@ -72,12 +74,7 @@ print("Train accuracy: {:3.2f}%".format(acc_train * 100.0))
 
 df_test = pd.read_csv('./test.csv')
 X_test = df_test.values
-learned_output = tf.argmax(yo,0)
-print(learned_output.eval({entree:[[0,0,0,0],[0,0,0,1]]}))
+df_test['res'] = sess.run(pred_label, feed_dict={entree: X_test})
 
-print("here")
-# for i in range(X_test.shape[0]):
-#     df_test[i, 'a'] = sess.run(pred_label, feed_dict={entree: X_test[i, None]})
-
-# print(df_test)
+print(df_test)
 sess.close()
