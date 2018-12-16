@@ -11,7 +11,11 @@ donne = pd.read_csv('./data.csv')
 
 # Selection des données (entrée/sortie attendu)
 x_in = donne.drop('res', axis=1).values
+
+#uniquement la colomne resultat
 y_in = donne['res'].values
+
+
 # creation du jeu de sortie 0 => [1,0], 1 => [0,1]
 labels_train = (np.arange(N_OUTPUT) == y_in[:, None]).astype(np.float32)
 
@@ -71,6 +75,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
 acc_train = accuracy.eval(feed_dict={entree: x_in, label: labels_train})
 print("Train accuracy: {:3.2f}%".format(acc_train * 100.0))
+pred_label = tf.argmax(yo, 1)
 
 df_test = pd.read_csv('./test.csv')
 X_test = df_test.values
