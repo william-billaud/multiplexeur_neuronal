@@ -1,0 +1,3 @@
+/home/william/CLionProjects/RNA/PartieC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/william/CLionProjects/RNA/PartieC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/william/CLionProjects/RNA/PartieC/cmake-build-debug/CMakeFiles/RNA.dir
