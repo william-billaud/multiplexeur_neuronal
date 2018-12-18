@@ -20,15 +20,11 @@ Le programme se compile via un CMake fournit dans le dossier.
 Le programme est capable d'apprendre des valeurs.  
 Cependant, au fur et à mesure des tests, nous sommes arrivés à la conclusion suivante:  
 	"Notre projet était trop ambitieux".  
-En effet, la quantité de données nécessaire pour que notre apprentissage finisse par aboutir sur des valeurs cohérentes est colossale,    
-car notre sujet à étudier (la voix) l'exige. Il nous faudrait alors des milliers  
-d'échantillons de voix, et nous n'avons pas les moyens de s'en procurer autant. Le groupe a donc  
-laissé tel quel ce projet, et nous avons décidé de partir sur un autre sujet en suivant les conseils de notre professeur.  
+En effet, la quantité de données nécessaire pour que notre apprentissage finisse par aboutir sur des valeurs cohérentes est (trop) importante. Il nous faudrait alors des milliers d'échantillons de voix, et nous n'avons pas les moyens de nous en procurer autant. Le groupe a donc laissé tel quel ce projet, et nous avons décidé de partir sur un autre sujet en suivant les conseils de notre professeur.  
 
 ## Multiplexeur en RNA (Python)
 
-Le principe est le suivant: Le réseau de neurones devra suivre le comportement d'un Multiplexeur  
-en fonction des valeurs qui lui sont passées en entrée.  
+Le principe est le suivant: Le réseau de neurones devra suivre le comportement d'un Multiplexeur des fonctions logiques and/or/nor/nand. Le réseaux apprend à partir de la table de vérité qu'on lui fournit en entré.   
 
 ### Requirement
 
